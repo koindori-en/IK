@@ -137,16 +137,18 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 7px 14px;
+            /* 버튼 크기 축소 (기존 7px 14px -> 6px 12px) */
+            padding: 6px 12px;
             /* 반투명한 유리 배경 */
             background-color: rgba(255, 255, 255, 0.03); 
             /* 배경 흐림 효과로 고급스러움 극대화 */
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             color: #cbd5e1; /* 부드러운 화이트/실버 */
-            font-size: 14.5px; 
+            /* 폰트 크기 축소 (기존 14.5px -> 14px) */
+            font-size: 14px; 
             font-weight: 500;
-            border-radius: 8px; 
+            border-radius: 7px; /* 곡률 살짝 축소 */
             cursor: pointer;
             
             /* CSS 변수 적용 */
@@ -259,8 +261,9 @@
             }
 
             .link-btn {
-                padding: 10px 16px; 
-                font-size: 15px; 
+                /* 모바일 환경에서도 버튼 크기 비례 축소 */
+                padding: 8px 14px; 
+                font-size: 14.5px; 
                 background-color: rgba(255, 255, 255, 0.05); /* 모바일에서는 살짝 더 밝게 */
             }
         }
