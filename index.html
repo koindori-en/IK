@@ -129,6 +129,11 @@
 
         /* ★ 버튼 전용 글래스모피즘 (유리 질감) */
         .link-btn {
+            /* CSS 변수를 활용한 동적 컬러 시스템 (기본값 설정) */
+            --btn-border: rgba(255, 255, 255, 0.07);
+            --btn-glow: rgba(129, 140, 248, 0.5);
+            --btn-glow-shadow: rgba(129, 140, 248, 0.25);
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -143,8 +148,9 @@
             font-weight: 500;
             border-radius: 8px; 
             cursor: pointer;
-            /* 테두리 두께를 미리 지정해두어 호버시 떨림 방지 */
-            border: 1px solid rgba(255, 255, 255, 0.07); 
+            
+            /* CSS 변수 적용 */
+            border: 1px solid var(--btn-border); 
             
             /* 크기는 변하지 않으면서 부드럽게 위치, 색상, 그림자만 변하는 고급 트랜지션 */
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
@@ -156,6 +162,27 @@
             white-space: nowrap;
         }
 
+        /* ★ 커스텀 브랜드 색상 유틸리티 클래스 */
+        /* 로고스 바이블 (파란색) */
+        .color-logos { --btn-border: rgba(59, 130, 246, 0.35); --btn-glow: rgba(59, 130, 246, 0.7); --btn-glow-shadow: rgba(59, 130, 246, 0.35); }
+        /* 다음 (노란색) */
+        .color-daum { --btn-border: rgba(250, 204, 21, 0.35); --btn-glow: rgba(250, 204, 21, 0.7); --btn-glow-shadow: rgba(250, 204, 21, 0.35); }
+        /* 유튜브 (빨간색) */
+        .color-youtube { --btn-border: rgba(239, 68, 68, 0.35); --btn-glow: rgba(239, 68, 68, 0.7); --btn-glow-shadow: rgba(239, 68, 68, 0.35); }
+        /* 구글 (회색) */
+        .color-google { --btn-border: rgba(156, 163, 175, 0.35); --btn-glow: rgba(156, 163, 175, 0.7); --btn-glow-shadow: rgba(156, 163, 175, 0.35); }
+        /* 네이버 (초록색) */
+        .color-naver { --btn-border: rgba(34, 197, 94, 0.35); --btn-glow: rgba(34, 197, 94, 0.7); --btn-glow-shadow: rgba(34, 197, 94, 0.35); }
+        /* Auphonic (체리색) */
+        .color-auphonic { --btn-border: rgba(225, 29, 72, 0.35); --btn-glow: rgba(225, 29, 72, 0.7); --btn-glow-shadow: rgba(225, 29, 72, 0.35); }
+        /* Gemini (하얀색) */
+        .color-gemini { --btn-border: rgba(255, 255, 255, 0.35); --btn-glow: rgba(255, 255, 255, 0.8); --btn-glow-shadow: rgba(255, 255, 255, 0.4); }
+        /* 새제천교회 (연두색) */
+        .color-saejecheon { --btn-border: rgba(132, 204, 22, 0.35); --btn-glow: rgba(132, 204, 22, 0.7); --btn-glow-shadow: rgba(132, 204, 22, 0.35); }
+        /* 주민등록 (주황색) */
+        .color-jumin { --btn-border: rgba(249, 115, 22, 0.35); --btn-glow: rgba(249, 115, 22, 0.7); --btn-glow-shadow: rgba(249, 115, 22, 0.35); }
+
+
         /* ★ 떨림 없는 프리미엄 호버 이펙트 (Glow & Levitate) */
         @media (hover: hover) {
             .link-btn:hover {
@@ -163,15 +190,16 @@
                 background-color: rgba(255, 255, 255, 0.1); 
                 /* 텍스트 퓨어 화이트로 쨍하게 */
                 color: #ffffff; 
-                /* 테두리에 은은한 일루미네이션(퍼플/블루 톤) 적용 */
-                border-color: rgba(129, 140, 248, 0.5);
+                
+                /* 호버 시 변수에 지정된 글로우 색상 사용 */
+                border-color: var(--btn-glow);
                 
                 /* 크기를 키우는 scale 대신, 위치만 위로 살짝 띄워 레이아웃 떨림 원천 봉쇄 */
                 transform: translateY(-3px); 
                 
-                /* 유리 버튼 아래로 퍼지는 네온 글로우 그림자 */
+                /* 변수에 지정된 색상으로 유리 버튼 아래로 퍼지는 네온 글로우 그림자 */
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
-                            0 0 15px rgba(129, 140, 248, 0.25);
+                            0 0 15px var(--btn-glow-shadow);
                 z-index: 2; 
             }
         }
@@ -273,7 +301,8 @@
                         <div class="link-btn" onclick="window.open('https://www.motionvfx.com/', '_blank')">Motionvfx</div>
                         <div class="link-btn" onclick="window.open('https://studio.youtube.com/channel/UC3t-zvb811lELTjG2COO1Bw/music', '_blank')">오디오 도서관</div>
                         <div class="link-btn" onclick="window.open('https://freesound.org/', '_blank')">프리사운드</div>
-                        <div class="link-btn" onclick="window.open('https://auphonic.com/account/login/?next=/engine/', '_blank')">Auphonic</div>
+                        <!-- 적용: Auphonic (체리색) -->
+                        <div class="link-btn color-auphonic" onclick="window.open('https://auphonic.com/account/login/?next=/engine/', '_blank')">Auphonic</div>
                     </div>
                 </div>
 
@@ -284,7 +313,8 @@
                         <div class="link-btn" onclick="window.open('https://www.kbstar.com/', '_blank')">국민은행</div>
                         <div class="link-btn" onclick="window.open('https://www.nhbank.com/', '_blank')">농협은행</div>
                         <div class="link-btn" onclick="window.open('https://efamily.scourt.go.kr/index.jsp', '_blank')">가족관계</div>
-                        <div class="link-btn" onclick="window.open('https://plus.gov.kr/', '_blank')">주민등록</div>
+                        <!-- 적용: 주민등록 (주황색) -->
+                        <div class="link-btn color-jumin" onclick="window.open('https://plus.gov.kr/', '_blank')">주민등록</div>
                         <div class="link-btn" onclick="window.open('https://www.korail.com/intro', '_blank')">코레일</div>
                         <div class="link-btn" onclick="window.open('https://hometax.go.kr/websquare/websquare.html?w2xPath=/ui/pp/index_pp.xml', '_blank')">홈텍스</div>
                     </div>
@@ -293,7 +323,8 @@
                 <div class="category-box">
                     <h2 class="cat-title">AI 플랫폼</h2>
                     <div class="links-wrapper">
-                        <div class="link-btn" onclick="window.open('https://gemini.google.com/app', '_blank')">Gemini</div>
+                        <!-- 적용: Gemini (하얀색) -->
+                        <div class="link-btn color-gemini" onclick="window.open('https://gemini.google.com/app', '_blank')">Gemini</div>
                         <div class="link-btn" onclick="window.open('https://notebooklm.google.com/', '_blank')">Notebook LM</div>
                         <div class="link-btn" onclick="window.open('https://aistudio.google.com/prompts/new_chat', '_blank')">AI Studio</div>
                         <div class="link-btn" onclick="window.open('https://chatgpt.com/', '_blank')">Chat GPT</div>
@@ -309,7 +340,8 @@
                 <div class="category-box">
                     <h2 class="cat-title">기독교 및 성경</h2>
                     <div class="links-wrapper">
-                        <div class="link-btn" onclick="window.open('https://kr.logos.com/', '_blank')">로고스바이블</div>
+                        <!-- 적용: 로고스바이블 (파란색) -->
+                        <div class="link-btn color-logos" onclick="window.open('https://kr.logos.com/', '_blank')">로고스바이블</div>
                         <div class="link-btn" onclick="window.open('https://www.kidok.com/member/login.html?backUrl=/bbs/list.html?table=bbs_9', '_blank')">기독신문</div>
                         <div class="link-btn" onclick="window.open('http://www.holybible.or.kr/', '_blank')">홀리바이블</div>
                         <div class="link-btn" onclick="window.open('https://hangl.net/korbible', '_blank')">한글성경</div>
@@ -330,7 +362,8 @@
                 <div class="category-box">
                     <h2 class="cat-title">쇼핑 및 커머스</h2>
                     <div class="links-wrapper">
-                        <div class="link-btn" onclick="window.open('https://www.daum.net/', '_blank')">다음</div>
+                        <!-- 적용: 다음 (노란색) -->
+                        <div class="link-btn color-daum" onclick="window.open('https://www.daum.net/', '_blank')">다음</div>
                         <div class="link-btn" onclick="window.open('https://www.nate.com/', '_blank')">네이트</div>
                         <div class="link-btn" onclick="window.open('https://www.enuri.com/', '_blank')">에누리</div>
                         <div class="link-btn" onclick="window.open('https://ko.aliexpress.com/', '_blank')">알리</div>
@@ -351,7 +384,8 @@
                         <div class="link-btn" onclick="window.open('http://192.168.0.10/', '_blank')">CCTV</div>
                         <div class="link-btn" onclick="window.open('https://192.168.0.43/', '_blank')">BeeStation</div>
                         <div class="link-btn" onclick="window.open('https://wfree.dimode.co.kr/saejecheon', '_blank')">디모데 SJC</div>
-                        <div class="link-btn" onclick="window.open('https://saejecheon.com/bbs/login.php?url=https://saejecheon.com/bbs/board.php?bo_table=gallery', '_blank')">새제천교회</div>
+                        <!-- 적용: 새제천교회 (연두색) -->
+                        <div class="link-btn color-saejecheon" onclick="window.open('https://saejecheon.com/bbs/login.php?url=https://saejecheon.com/bbs/board.php?bo_table=gallery', '_blank')">새제천교회</div>
                     </div>
                 </div>
             </div>
@@ -362,7 +396,8 @@
                     <h2 class="cat-title">미디어의 세계</h2>
                     <div class="links-wrapper">
                         <div class="link-btn" onclick="window.open('https://www.netflix.com/kr/', '_blank')">넥플릭스</div>
-                        <div class="link-btn" onclick="window.open('https://www.youtube.com/', '_blank')">유튜브</div>
+                        <!-- 적용: 유튜브 (빨간색) -->
+                        <div class="link-btn color-youtube" onclick="window.open('https://www.youtube.com/', '_blank')">유튜브</div>
                         <div class="link-btn" onclick="window.open('https://cgv.co.kr/', '_blank')">CGV</div>
                         <div class="link-btn" onclick="window.open('https://www.dtryx.com/main.do?cgid=FE8EF4D2-F22D-4802-A39A-D58F23A29C1E', '_blank')">제천시네마</div>
                         <div class="link-btn" onclick="window.open('https://www.instagram.com/', '_blank')">인스타그램</div>
@@ -380,7 +415,8 @@
                 <div class="category-box">
                     <h2 class="cat-title">포털 및 검색_구글</h2>
                     <div class="links-wrapper">
-                        <div class="link-btn" onclick="window.open('https://www.google.com/', '_blank')">구글</div>
+                        <!-- 적용: 구글 (회색) -->
+                        <div class="link-btn color-google" onclick="window.open('https://www.google.com/', '_blank')">구글</div>
                         <div class="link-btn" onclick="window.open('https://earth.google.com/web/', '_blank')">구글어스</div>
                         <div class="link-btn" onclick="window.open('https://drive.google.com/drive/my-drive', '_blank')">구글드라이브</div>
                         <div class="link-btn" onclick="window.open('https://docs.google.com/document/u/0/', '_blank')">구글독스</div>
@@ -388,13 +424,16 @@
                         <div class="link-btn" onclick="window.open('https://myaccount.google.com/find-your-phone', '_blank')">구글위치추적</div>
                         <div class="link-btn" onclick="window.open('https://calendar.google.com/calendar/u/0/r', '_blank')">구글 캘린더</div>
                         <div class="link-btn" onclick="window.open('https://chromewebstore.google.com/category/extensions?hl=ko', '_blank')">구글 웹스토어</div>
+                        <!-- 신규 추가: 글쓰기 AI -->
+                        <div class="link-btn" onclick="window.open('https://gemini.google.com/gem/19e39322a250/e7a8bbfa9b9f9a01?usp=sharing', '_blank')">글쓰기 AI</div>
                     </div>
                 </div>
 
                 <div class="category-box">
                     <h2 class="cat-title">포털 및 검색_네이버</h2>
                     <div class="links-wrapper">
-                        <div class="link-btn" onclick="window.open('https://www.naver.com/', '_blank')">네이버</div>
+                        <!-- 적용: 네이버 (초록색) -->
+                        <div class="link-btn color-naver" onclick="window.open('https://www.naver.com/', '_blank')">네이버</div>
                         <div class="link-btn" onclick="window.open('https://map.naver.com/p/', '_blank')">네이버 지도</div>
                         <div class="link-btn" onclick="window.open('https://en.dict.naver.com/#/main', '_blank')">네이버 영어사전</div>
                         <div class="link-btn" onclick="window.open('https://www.band.us/home', '_blank')">네이버 밴드</div>
