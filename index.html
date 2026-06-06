@@ -163,7 +163,7 @@
         /* ★ 커스텀 브랜드 색상 유틸리티 클래스 (은은한 은색 톤에 미세한 브랜드 컬러 가미) */
         /* 로고스 바이블 (은은한 청은색) */
         .color-logos { --btn-border: rgba(186, 210, 245, 0.22); --btn-glow: rgba(59, 130, 246, 0.7); --btn-glow-shadow: rgba(59, 130, 246, 0.35); }
-        /* 다음 (은은한 황은색) */
+        /* 에누리/다음 이펙트용 (은은한 황은색) */
         .color-daum { --btn-border: rgba(235, 220, 185, 0.22); --btn-glow: rgba(250, 204, 21, 0.7); --btn-glow-shadow: rgba(250, 204, 21, 0.35); }
         /* 유튜브 (은은한 적은색) */
         .color-youtube { --btn-border: rgba(235, 195, 195, 0.22); --btn-glow: rgba(239, 68, 68, 0.7); --btn-glow-shadow: rgba(239, 68, 68, 0.35); }
@@ -373,10 +373,11 @@
                 <div class="category-box">
                     <h2 class="cat-title">쇼핑 및 커머스</h2>
                     <div class="links-wrapper">
-                        <!-- 적용: 다음 (은은한 황은색) -->
-                        <div class="link-btn color-daum" onclick="window.open('https://www.daum.net/', '_blank')">다음</div>
+                        <!-- 다음 버튼 (효과가 제거되어 일반 버튼 스타일로 변경됨) -->
+                        <div class="link-btn" onclick="window.open('https://www.daum.net/', '_blank')">다음</div>
                         <div class="link-btn" onclick="window.open('https://www.nate.com/', '_blank')">네이트</div>
-                        <div class="link-btn" onclick="window.open('https://www.enuri.com/', '_blank')">에누리</div>
+                        <!-- 적용: 에누리 (다음 버튼으로부터 은은한 황은색 효과가 이전됨) -->
+                        <div class="link-btn color-daum" onclick="window.open('https://www.enuri.com/', '_blank')">에누리</div>
                         <div class="link-btn" onclick="window.open('https://ko.aliexpress.com/', '_blank')">알리</div>
                         <div class="link-btn" onclick="window.open('https://www.ebay.com/', '_blank')">이베이</div>
                         <div class="link-btn" onclick="window.open('https://www.amazon.com/', '_blank')">아마존</div>
@@ -389,8 +390,8 @@
                         <!-- 깃허브 및 PDF 추가됨 -->
                         <div class="link-btn" onclick="window.open('https://github.com/', '_blank')">깃허브</div>
                         <div class="link-btn" onclick="window.open('https://www.ilovepdf.com/ko/pdf_to_jpg', '_blank')">PDF</div>
-                        <!-- gems 추가됨 -->
-                        <div class="link-btn" onclick="window.open('https://github.com/koindori-en/gems', '_blank')">gems</div>
+                        <!-- GEMS 대문자로 수정됨 -->
+                        <div class="link-btn" onclick="window.open('https://github.com/koindori-en/gems', '_blank')">GEMS</div>
                     </div>
                 </div>
 
@@ -402,8 +403,8 @@
                         <div class="link-btn" onclick="window.open('https://wfree.dimode.co.kr/saejecheon', '_blank')">디모데 SJC</div>
                         <!-- 적용: 새제천교회 (은은한 연두은색) -->
                         <div class="link-btn color-saejecheon" onclick="window.open('https://saejecheon.com/bbs/login.php?url=https://saejecheon.com/bbs/board.php?bo_table=gallery', '_blank')">새제천교회</div>
-                        <!-- profile 추가됨 -->
-                        <div class="link-btn" onclick="window.open('https://koindori-en.github.io/profile/', '_blank')">profile</div>
+                        <!-- PROFILE 대문자로 수정 및 링크 변경 완료 -->
+                        <div class="link-btn" onclick="window.open('https://koindori-en.github.io/gems/', '_blank')">PROFILE</div>
                     </div>
                 </div>
             </div>
@@ -442,7 +443,6 @@
                         <div class="link-btn" onclick="window.open('https://myaccount.google.com/find-your-phone', '_blank')">구글위치추적</div>
                         <div class="link-btn" onclick="window.open('https://calendar.google.com/calendar/u/0/r', '_blank')">구글 캘린더</div>
                         <div class="link-btn" onclick="window.open('https://chromewebstore.google.com/category/extensions?hl=ko', '_blank')">구글 웹스토어</div>
-                        <!-- '글쓰기 AI' 버튼이 제거되었습니다 -->
                     </div>
                 </div>
 
